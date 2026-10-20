@@ -323,7 +323,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(min-width:900px){.partners .eyebrow{margin:0}}
 .plogos{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 20px;align-items:center;justify-items:center}
 @media(min-width:700px){.plogos{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1100px){.plogos{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1100px){.plogos{grid-template-columns:repeat(7,minmax(0,1fr));gap:34px 28px}}
 .plogo--fuel{height:72px}.plogo--nya{height:52px}
 .plogo{display:block;width:150px;height:76px;max-width:100%;text-decoration:none}
 .plogo i{display:block;width:100%;height:100%;background:var(--ink);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;transition:background-color .35s var(--ease),transform .35s var(--out)}
@@ -334,9 +334,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .partners .plogo:hover i,.partners .plogo:focus-visible i{opacity:0;background:var(--ink)}
 .plogo i{transition:background-color .35s var(--ease),transform .35s var(--out),opacity .4s var(--ease)}
 
-.plogo--loma{height:54px}.plogo--mm{height:60px}
+.plogo--loma{height:54px}.plogo--mm{height:60px}.plogo--bb{height:58px}
 .ft .plogos{grid-template-columns:repeat(3,auto)!important;justify-content:start;gap:22px;margin-top:14px}
-.ft .plogo{width:70px;height:36px}.ft .plogo--fuel{height:34px}.ft .plogo--nya{height:26px}.ft .plogo--loma{height:26px}.ft .plogo--mm{height:28px}
+.ft .plogo{width:70px;height:36px}.ft .plogo--fuel{height:34px}.ft .plogo--nya{height:26px}.ft .plogo--loma{height:26px}.ft .plogo--mm{height:28px}.plogo--bb{height:26px}
 .ft .plogo i{background:var(--ink);opacity:.85}
 
 
@@ -646,7 +646,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <p style="margin-top:26px;font-size:13px">Who we buy from</p><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/produceozbyjensens/" target="_blank" rel="noopener" aria-label="Produce Oz by Jensens"><i style="--m:url(img/logo-jensens.png)"></i></a>
-        <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a><span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i></span><a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i></a></div></div>
+        <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a><span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i></span><span class="plogo plogo--bb" aria-label="Butterboy" role="img"><i style="--m:url(img/logo-butterboy-m.png)"></i></span><a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i></a></div></div>
   </div>
   <div class="ft__base wrap"><span class="mark" aria-hidden="true"></span><span>© Tucker Casuarina · <a class="ul" href="https://www.tuckercasuarina.com/terms-of-use" target="_blank" rel="noopener">Terms</a> · <a class="ul" href="https://www.tuckercasuarina.com/privacy-policy" target="_blank" rel="noopener">Privacy</a> · Site by The Service Edit</span></div>
 </footer>
