@@ -291,7 +291,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* ===== reading tiles ===== */
 .reads{display:grid;gap:36px}
-@media(min-width:800px){.reads{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
+@media(min-width:800px){.reads{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
 .read{display:block;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer}
 .read .box{aspect-ratio:4/3;overflow:hidden;margin:0 0 16px}
 .read img{transition:transform 1.2s var(--out)}
@@ -616,18 +616,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </dl>
   <a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
 </aside>
-<aside class="drawer" id="d-list" aria-hidden="true" aria-label="The 6am list">
-  <div class="drawer__x"><button data-close>Close ✕</button></div>
-  <div class="box"><img loading="lazy" decoding="async" class="ph" src="img/breadcounter.jpg" alt=""></div>
-  <p class="eyebrow">The 6am list</p>
-  <h2>New dishes, early specials and the odd dog beach update.</h2>
-  <p>One email, not many.</p>
-  <form class="dform" novalidate>
-    <label class="sr" for="dEmail">Email address</label>
-    <div class="sub" style="border-color:var(--ink)"><input id="dEmail" type="email" placeholder="Email address" autocomplete="email" style="color:var(--ink)"><button type="submit" style="color:var(--ink)">Join</button></div>
-    <p class="sub-ok" hidden>You're on the list. <span class="small">(Draft: this form isn't connected yet.)</span></p>
-  </form>
-</aside>
 
 <a class="mbar" id="mbar" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener"><small><i id="mbarDot"></i><span id="mbarText">Open now</span></small><b>Order pickup <svg viewBox="0 0 16 10" width="16" height="10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h15M11 1l4 4-4 4"/></svg></b></a>
 <footer class="ft">
@@ -649,9 +637,7 @@ return '<a class="ig__t" href="'+p.permalink+'" target="_blank" rel="noopener"><
     <details class="fcol" open><summary><h2>Eat</h2></summary><ul><li><a class="ul" href="bookings.html">Group bookings</a></li><li><a class="ul" href="gift-vouchers.html">Gift vouchers</a></li><li><a class="ul" href="store.html">Store</a></li><li><a class="ul" href="index.html#dishes">What to order</a></li><li><a class="ul" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></li><li><a class="ul" href="index.html#order">How ordering ahead works</a></li></ul></details>
     <details class="fcol" open><summary><h2>Visit</h2></summary><ul><li>The Commons, T1/480 Casuarina Way, Casuarina NSW 2487</li><li><b style="font-weight:600">Weekdays</b><br>Coffee 6am–2pm<br>Kitchen 7:30am–1pm</li><li><b style="font-weight:600">Weekends</b><br>Coffee 7am–2pm<br>Kitchen 7:30am–1pm</li></ul></details>
     <details class="fcol" open><summary><h2>Around</h2></summary><ul><li><a class="ul" href="about.html">About Tucker</a></li><li><button class="ul" data-open="dogs" style="background-color:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer">What to do around the Tweed</button></li><li><a class="ul" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Instagram</a></li><li>gday@tuckercasuarina.com</li></ul></details>
-    <div class="ft__news"><h2>The 6am list</h2><p>New dishes, early specials and the odd dog beach update. One email, not many.</p>
-      <form class="dform" novalidate><label class="sr" for="fEmail">Email address</label><div class="sub"><input id="fEmail" type="email" placeholder="Email address" autocomplete="email"><button type="submit">Join</button></div><p class="sub-ok" hidden>You're on the list. (Draft: this form isn't connected yet.)</p></form>
-      <p style="margin-top:26px;font-size:13px">Who we buy from</p><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
+    <div class="ft__news"><h2>Who we buy from</h2><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/produceozbyjensens/" target="_blank" rel="noopener" aria-label="Produce Oz by Jensens"><i style="--m:url(img/logo-jensens.png)"></i></a>
         <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a><span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i></span><span class="plogo plogo--bb" aria-label="Butterboy" role="img"><i style="--m:url(img/logo-butterboy-m.png)"></i></span><a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i></a></div></div>
