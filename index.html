@@ -707,6 +707,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   </section>
 
   <!-- two-column promo: order ahead -->
+  <style>.promo__phone{display:none}@media(max-width:899px){#order .promo__img{display:none}#order,#order .promo__txt{position:relative;overflow:visible}#order .promo__phone{display:block;position:absolute;z-index:3;right:max(18px,6vw);bottom:-140px;width:min(33vw,130px);height:auto;filter:drop-shadow(0 18px 22px rgba(31,42,34,.28));pointer-events:none}#order+*{margin-top:176px!important}}</style>
   <section class="promo" id="order" aria-label="Order ahead for pickup" style="margin-top:96px">
     <div class="promo__img" data-rv><picture><source media="(max-width: 899px)" srcset="img/pickup-app-m.jpg"><img loading="lazy" decoding="async" src="img/pickup-app.jpg" alt="Tucker's online pickup menu on a phone: coffee, iced drinks, cold drinks and baked goods"></picture></div>
     <div class="promo__txt" data-rv>
@@ -719,6 +720,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <li><span><b>Walk in, grab it</b>From 6am weekdays, 7am weekends.</span></li>
       </ol>
       <a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a>
+    <img class="promo__phone" loading="lazy" decoding="async" src="img/pickup-phone.png" alt="" aria-hidden="true">
     </div>
   </section>
 
@@ -755,7 +757,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="sh sh--left" data-rv><h2 style="margin:0">Around the Tweed</h2></div>
     <div class="reads">
       <button class="read" data-open="dogs" data-rv>
-        <div class="box"><img loading="lazy" decoding="async" class="ph" src="img/dog3.jpg" alt="A golden retriever drinking from a Tucker cup in the courtyard"></div>
+        <div class="box"><img loading="lazy" decoding="async" class="ph" src="img/cabarita.jpg" alt="Cabarita Beach and Norries Headland on a sunny morning"></div>
         <small>Guide</small><h4><span class="ul">What to do around the Tweed</span></h4><span class="m">A headland walk, the rail trail, the gallery and where your dog can run</span>
       </button>
       <button class="read" data-open="first" data-rv>
