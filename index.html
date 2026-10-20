@@ -213,13 +213,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .room:hover img{transform:scale(1.04)}
 .room h4{font-size:17px;font-weight:400;margin:16px 0 4px}
 .room p{font-size:14px;color:var(--muted)}
+.chips--c{margin:26px 0 0!important;justify-content:flex-start}
+@media(min-width:900px){.chips--c{justify-content:center}}
 .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:-8px 0 28px;padding-bottom:2px}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:0 0 auto;font:inherit;font-size:14px;padding:9px 16px 7px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background-color .3s ease,color .3s ease}
 .chip:hover{background:rgba(31,42,34,.08)}
 .chip.on{background:var(--ink);color:var(--bg)}
-.drink.hide{display:none}
-.drink.pop{animation:pop .5s var(--out) both}
+.drink.hide,.tile.hide{display:none}
+.drink.pop,.tile.pop{animation:pop .5s var(--out) both}
 @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .drink .box{aspect-ratio:1/1;position:relative;background:#f4f4f2}
 .drink .price{font-size:14px;color:var(--ink);margin-top:8px;font-variant-numeric:tabular-nums}
@@ -281,7 +283,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .partners .eyebrow{margin:0 0 26px}
 @media(min-width:900px){.partners .eyebrow{margin:0}}
 .plogos{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 20px;align-items:center;justify-items:center}
-@media(min-width:900px){.plogos{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:700px){.plogos{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.plogos{grid-template-columns:repeat(6,1fr)}}
+.plogo--fuel{height:72px}.plogo--nya{height:52px}
 .plogo{display:block;width:150px;height:76px;max-width:100%;text-decoration:none}
 .plogo i{display:block;width:100%;height:100%;background:var(--ink);-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;transition:background-color .35s var(--ease),transform .35s var(--out)}
 .plogo:hover i{transform:translateY(-3px)}
@@ -292,8 +296,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .plogo i{transition:background-color .35s var(--ease),transform .35s var(--out),opacity .4s var(--ease)}
 
 .plogo--loma{height:54px}.plogo--mm{height:60px}
-.ft .plogos{grid-template-columns:repeat(4,auto);justify-content:start;gap:22px;margin-top:14px}
-.ft .plogo{width:70px;height:36px}.ft .plogo--loma{height:26px}.ft .plogo--mm{height:28px}
+.ft .plogos{grid-template-columns:repeat(3,auto)!important;justify-content:start;gap:22px;margin-top:14px}
+.ft .plogo{width:70px;height:36px}.ft .plogo--fuel{height:34px}.ft .plogo--nya{height:26px}.ft .plogo--loma{height:26px}.ft .plogo--mm{height:28px}
 .ft .plogo i{background:var(--ink);opacity:.85}
 
 /* ===== footer ===== */
@@ -354,9 +358,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <ul class="fly__sec" id="flySec">
         <li><button class="on" data-p="0">Breakfast<small>till 11</small></button></li>
         <li><button data-p="1">Brunch<small>all day</small></button></li>
-        <li><button data-p="2">Lunch<small>from 10:30</small></button></li>
-        <li><button data-p="3">Little Tucker<small>under 12s</small></button></li>
-        <li><button data-p="4">Drinks<small>Loma from 6</small></button></li>
+        <li><button data-p="2">Little Tucker<small>under 12s</small></button></li>
+        <li><button data-p="3">Drinks<small>Loma from 6</small></button></li>
       </ul>
     </div>
     <div class="fly__col">
@@ -371,14 +374,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <li><span>Rosti benedict</span><span>27.00</span></li>
         <li><span>Chorizo scramble</span><span>25.50</span></li>
         <li><span>Shroom scramble</span><span>25.50</span></li>
+        <li><span>Green eggs</span><span>21.00</span></li>
         <li><span>Chunky avocado</span><span>19.00</span></li>
         <li class="note"><span>Brunch runs all day, kitchen till 1.</span><span></span></li>
-      </ul>
-      <ul class="fly__items fly__pane">
-        <li><span>The Burgster</span><span>19.50</span></li>
-        <li><span>TFC burger</span><span>19.50</span></li>
-        <li><span>BLAT</span><span>19.00</span></li>
-        <li><span>Green eggs</span><span>21.00</span></li>
       </ul>
       <ul class="fly__items fly__pane">
         <li><span>Egg on toast</span><span>8.00</span></li>
@@ -449,64 +447,67 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   <!-- heading -->
   <div class="sh wrap" id="dishes" data-rv>
-    <h2>what people come back for</h2>
-    <p>There are forty-odd things on the board. These are the ones regulars order without looking.</p>
+    <h2>food</h2>
+    <p>Breakfast from open till 11, brunch all day. The kitchen runs 7:30 till 1.</p>
+    <div class="chips chips--c" role="group" aria-label="Filter food" data-for="food">
+      <button class="chip on" data-f="all">All</button><button class="chip" data-f="breakfast">Breakfast</button><button class="chip" data-f="brunch">Brunch</button><button class="chip" data-f="kids">Little Tucker</button>
+    </div>
   </div>
 
   <!-- dish carousel -->
   <section class="band band--yellow" aria-label="Dishes">
-    <div class="car" data-car>
+    <div class="car" data-car data-group="food">
       <div class="car__track">
-        <article class="tile has-alt">
+        <article data-cat="brunch" class="tile has-alt">
           <div class="tile__fig"><span class="badge">Gluten free</span>
             <img class="ph" src="img/mu-rosti.jpg" alt="Rosti Benedict"><img class="ph alt" src="img/cafe-rosti.jpg" alt="Rosti benedict at a table in the Tucker courtyard">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>Rosti Benedict</h3><p>Two herbed potato rostis, free-range poached eggs and house-made hollandaise, plus your choice of topping.</p><div class="price">$27.00 · half serve $15.50</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile has-alt">
-          <div class="tile__fig"><span class="badge">All day</span>
+        <article data-cat="brunch" class="tile has-alt">
+          <div class="tile__fig">
             <img class="ph" src="img/mu-chorizo.jpg" alt="Chorizo Scramble"><img class="ph alt" src="img/cafe-chorizo2.jpg" alt="Chimichurri spooned over the chorizo scramble">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>Chorizo Scramble</h3><p>Scrambled egg, pan-fried chorizo, red onion, nduja, coriander, chives, fermented chilli and chimichurri on sourdough.</p><div class="price">$25.50</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile has-alt">
-          <div class="tile__fig"><span class="badge">Breakfast till 11</span>
+        <article data-cat="breakfast" class="tile has-alt">
+          <div class="tile__fig">
             <img class="ph" src="img/mu-frenchtoast.jpg" alt="French Toast"><img class="ph alt" src="img/cafe-frenchtoast.jpg" alt="French toast on a table in the Tucker courtyard">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>French Toast</h3><p>Vanilla mascarpone, cinnamon, shortbread crumble, strawberry gel, fresh berries and custard on Bread Social brioche.</p><div class="price">$23.50</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile has-alt">
-          <div class="tile__fig"><span class="badge">Breakfast till 11</span>
+        <article data-cat="breakfast" class="tile has-alt">
+          <div class="tile__fig">
             <img class="ph" src="img/mu-granola.jpg" alt="Granola"><img class="ph alt" src="img/cafe-granola.jpg" alt="Granola on a timber table in the Tucker courtyard">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>Granola</h3><p>Oats and nut granola, chia coconut yoghurt, kiwi, pineapple, strawberry and lemon balm.</p><div class="price">$19.00</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile">
-          <div class="tile__fig"><span class="badge">Lunch from 10:30</span>
+        <article data-cat="brunch" class="tile">
+          <div class="tile__fig">
             <img class="ph" src="img/burgster.jpg" alt="The Burgster">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>The Burgster</h3><p>Wagyu beef patty, swiss cheese, lettuce, onion, tomato and le mac sauce on a milk bun.</p><div class="price">$19.50</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile has-alt">
-          <div class="tile__fig"><span class="badge">Lunch from 10:30</span>
+        <article data-cat="brunch" class="tile has-alt">
+          <div class="tile__fig">
             <img class="ph" src="img/mu-blat.jpg" alt="BLAT"><img class="ph alt" src="img/cafe-blat.jpg" alt="The BLAT on a table outside Tucker at The Commons">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>BLAT</h3><p>Bacon, lettuce, avocado, tomato and aioli on a Bread Social sandwich loaf. Add chips $5.</p><div class="price">$19.00</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile">
+        <article data-cat="brunch" class="tile">
           <div class="tile__fig">
             <img class="ph" src="img/greeneggs.jpg" alt="Green Eggs">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
           <div class="tile__cap"><h3>Green Eggs</h3><p>Seasonal greens, hummus, spiced almonds, poached eggs and salsa verde on sourdough.</p><div class="price">$21.00</div></div>
           <div class="tile__act"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div>
         </article>
-        <article class="tile">
+        <article data-cat="kids" class="tile">
           <div class="tile__fig"><span class="badge">Under 12s</span>
             <img class="ph" src="img/littletucker.jpg" alt="Little Tucker">
             <div class="over"><a class="btn" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></div></div>
@@ -553,16 +554,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i><img class="pc" src="img/logo-breadsocial-c.svg" alt=""></a>
         <a class="plogo" href="https://www.instagram.com/produceozbyjensens/" target="_blank" rel="noopener" aria-label="Produce Oz by Jensens"><i style="--m:url(img/logo-jensens.png)"></i><img class="pc" src="img/logo-jensens-c.png" alt=""></a>
         <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i><img class="pc" src="img/logo-meatmerchant-c.png" alt=""></a>
+        <span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i><img class="pc" src="img/logo-fuel-c.png" alt=""></span>
+        <a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i><img class="pc" src="img/logo-nya-c.png" alt=""></a>
     </div>
   </section>
 
   <!-- drinks -->
   <div class="wrap" id="drinks"><div class="sh sh--left" data-rv><div><h2 style="margin:0 0 10px">drinks</h2><p style="margin:0">Loma coffee from 6, plus iced specialties, smoothies, cold-pressed juice and soft drinks.</p></div></div>
-    <div class="chips" role="group" aria-label="Filter drinks">
+    <div class="chips" role="group" aria-label="Filter drinks" data-for="drinks">
       <button class="chip on" data-f="all">All</button><button class="chip" data-f="iced">Iced &amp; housemade</button><button class="chip" data-f="smoothie">Smoothies</button><button class="chip" data-f="juice">Cold-pressed juice</button><button class="chip" data-f="soft">Soft drinks &amp; kombucha</button>
     </div>
   </div>
-  <section class="car car--drinks" data-car aria-label="Drinks">
+  <section class="car car--drinks" data-car data-group="drinks" aria-label="Drinks">
     <div class="car__track">
       <figure class="room drink" data-cat="iced" style="margin:0"><div class="box"><span class="badge">Iced specialty</span><img class="ph" src="img/drink-coldbrew.jpg" alt="Cold Brew, Pistachio &amp; Sea Salt Foam" loading="lazy"></div><h4>Cold Brew, Pistachio &amp; Sea Salt Foam</h4><p>The iced one people photograph.</p><p class="price">$12.00</p></figure>
       <figure class="room drink" data-cat="iced" style="margin:0"><div class="box"><span class="badge">Iced specialty</span><img class="ph" src="img/drink-matcha.jpg" alt="Iced Ceremonial Matcha, Strawberry Foam" loading="lazy"></div><h4>Iced Ceremonial Matcha, Strawberry Foam</h4><p>Ceremonial matcha over ice with strawberry cold foam.</p><p class="price">$12.00</p></figure>
@@ -611,7 +614,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="reads">
       <button class="read" data-open="dogs" data-rv>
         <div class="box"><img class="ph" src="img/dog3.jpg" alt="A golden retriever drinking from a Tucker cup in the courtyard"></div>
-        <small>Guide</small><h4><span class="ul">Where your dog can be off-leash</span></h4><span class="m">Four Tweed coast beaches, in council's own wording</span>
+        <small>Guide</small><h4><span class="ul">What to do around the Tweed</span></h4><span class="m">A headland walk, the rail trail, the gallery and where your dog can run</span>
       </button>
       <button class="read" data-open="first" data-rv>
         <div class="box"><img class="ph" src="img/rosti-pass.jpg" alt="Rosti benedicts on the pass"></div>
@@ -627,11 +630,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <!-- drawers -->
 <div class="scrim scrim2" id="scrim2"></div>
-<aside class="drawer" id="d-dogs" aria-hidden="true" aria-label="Off-leash dog beaches">
+<aside class="drawer" id="d-dogs" aria-hidden="true" aria-label="What to do around the Tweed">
   <div class="drawer__x"><button data-close>Close ✕</button></div>
   <div class="box"><img class="ph" src="img/dog1.jpg" alt="A golden retriever with a Tucker cup"></div>
   <p class="eyebrow">Guide</p>
-  <h2>where your dog can actually be off-leash</h2>
+  <h2>what to do around the tweed</h2>
+  <p>Grab a coffee at Tucker, then pick one. Everything here is within a short drive of The Commons.</p>
+  <dl>
+    <dt>Walk Norries Headland</dt><dd>An 800-metre return boardwalk around the headland at Cabarita Beach, then a swim at the beach. Time Out ranked it Australia's top hidden coastal spot in 2025.</dd>
+    <dt>Ride the Northern Rivers Rail Trail</dt><dd>The Tweed section runs 24km from Murwillumbah to Crabbes Creek, on sealed and compacted gravel paths with old rail bridges and tunnels along the way.</dd>
+    <dt>See the Margaret Olley Art Centre</dt><dd>At the Tweed Regional Gallery in Murwillumbah. Entry is free, and it's open 10 to 4, Wednesday to Sunday.</dd>
+  </dl>
+  <h3 style="font-size:20px;font-weight:400;margin:30px 0 6px">Where your dog can be off-leash</h3>
   <p>Four beaches on the Tweed coast, in council's own wording. Some maps online still have them the wrong way round.</p>
   <dl>
     <dt>South Kingscliff</dt><dd>From the Salt residential boundary north to the Cudgen Creek rockwall.</dd>
@@ -640,7 +650,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <dt>South Pottsville</dt><dd>200m south of the main bathing area to 200m north of Black Rocks.</dd>
   </dl>
   <div class="warn"><b>No dogs at all: Cudgera Creek, Hastings Point.</b> The whole estuary and foreshore. It's home to the beach stone-curlew, one of roughly 16 left in NSW.</div>
-  <p class="small">Checked against tweed.nsw.gov.au, August 2026.</p>
+  <p class="small">Dog beaches checked against tweed.nsw.gov.au, August 2026. Gallery hours from gallery.tweed.nsw.gov.au, October 2026.</p>
 </aside>
 <aside class="drawer" id="d-first" aria-hidden="true" aria-label="First time questions">
   <div class="drawer__x"><button data-close>Close ✕</button></div>
@@ -679,13 +689,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="ft__grid wrap">
     <div><h2>Eat</h2><ul><li><a class="ul" href="#dishes">What to order</a></li><li><a class="ul" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></li><li><a class="ul" href="#order">How ordering ahead works</a></li></ul></div>
     <div><h2>Visit</h2><ul><li>The Commons, T1/480 Casuarina Way, Casuarina NSW 2487</li><li>Mon–Fri 6:00–2:00</li><li>Sat–Sun 7:00–2:00</li><li>Kitchen 7:30–1:00</li></ul></div>
-    <div><h2>Around</h2><ul><li><button class="ul" data-open="dogs" style="background-color:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer">Off-leash dog beaches</button></li><li><a class="ul" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Instagram</a></li><li>gday@tuckercasuarina.com</li></ul></div>
+    <div><h2>Around</h2><ul><li><button class="ul" data-open="dogs" style="background-color:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer">What to do around the Tweed</button></li><li><a class="ul" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Instagram</a></li><li>gday@tuckercasuarina.com</li></ul></div>
     <div><h2>The 6am list</h2><p>New dishes, early specials and the odd dog beach update. One email, not many.</p>
       <form class="dform" novalidate><label class="sr" for="fEmail">Email address</label><div class="sub"><input id="fEmail" type="email" placeholder="Email address" autocomplete="email"><button type="submit">Join</button></div><p class="sub-ok" hidden>You're on the list. (Draft: this form isn't connected yet.)</p></form>
       <p style="margin-top:26px;font-size:13px">Trusted partners</p><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/produceozbyjensens/" target="_blank" rel="noopener" aria-label="Produce Oz by Jensens"><i style="--m:url(img/logo-jensens.png)"></i></a>
-        <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a></div></div>
+        <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a><span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i></span><a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i></a></div></div>
   </div>
   <div class="ft__base wrap"><span class="mark" aria-hidden="true"></span><span>© Tucker Casuarina · Site by The Service Edit</span></div>
 </footer>
@@ -749,15 +759,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     var p=(vh-r.top)/(vh+r.height);si.style.transform='scale(1.12) translate3d(0,'+((p-.5)*-8).toFixed(2)+'%,0)';}
   story();
 
-  /* drink filters */
-  var chips=[].slice.call(document.querySelectorAll('.chip')), drinks=[].slice.call(document.querySelectorAll('.drink')), dtr=document.querySelector('.car--drinks .car__track');
-  chips.forEach(function(c){c.addEventListener('click',function(){
-    chips.forEach(function(x){x.classList.toggle('on',x===c);x.setAttribute('aria-pressed',x===c)});
-    var f=c.dataset.f, k=0;
-    drinks.forEach(function(d){var show=f==='all'||d.dataset.cat===f;d.classList.toggle('hide',!show);d.classList.remove('pop');
-      if(show&&!reduce){void d.offsetWidth;d.style.animationDelay=(Math.min(k++,6)*0.05)+'s';d.classList.add('pop')}});
-    dtr.scrollLeft=0; dtr.dispatchEvent(new Event('scroll'));
-  })});
+  /* filters (food + drinks) */
+  document.querySelectorAll('.chips[data-for]').forEach(function(group){
+    var g=group.dataset.for, car=document.querySelector('[data-group="'+g+'"]'), tr=car.querySelector('.car__track'),
+        items=[].slice.call(tr.children), chips=[].slice.call(group.querySelectorAll('.chip'));
+    chips.forEach(function(c){c.setAttribute('aria-pressed',c.classList.contains('on'));c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.toggle('on',x===c);x.setAttribute('aria-pressed',x===c)});
+      var f=c.dataset.f,k=0;
+      items.forEach(function(d){var show=f==='all'||d.dataset.cat===f;d.classList.toggle('hide',!show);d.classList.remove('pop');
+        if(show&&!reduce){void d.offsetWidth;d.style.animationDelay=(Math.min(k++,6)*0.05)+'s';d.classList.add('pop')}});
+      tr.scrollLeft=0; tr.dispatchEvent(new Event('scroll'));
+    })});
+  });
 
   /* reveal */
   if('IntersectionObserver' in window && !reduce){
