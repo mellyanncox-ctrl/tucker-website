@@ -103,6 +103,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .scrim{position:fixed;inset:0;z-index:30;background:rgba(20,26,22,.25);opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s .5s}
 .scrim.on{opacity:1;visibility:visible;transition:opacity .5s var(--ease),visibility 0s}
 
+
+/* full menu panel */
+.fly{height:100vh;height:100svh}
+.fly__in{height:100%;max-height:none;overflow:clip;align-items:start}
+.fly__nav{min-width:0;max-width:100%}
+@media(max-width:899px){.fly__nav,.fly__list{align-self:stretch;width:100%}}
+@media(min-width:900px){.fly__in{grid-template-columns:260px minmax(0,1fr) 300px;gap:56px}}
+.fly__list{height:100%;overflow-y:auto;overscroll-behavior:contain;padding-right:8px;padding-bottom:40px}
+.fly__list h4{font-size:30px;font-weight:300;margin:0 0 8px}
+.fly__list h4 small{font-size:13px;opacity:.65;margin-left:8px}
+.fly__items li{align-items:baseline}
+.fly__items li div{min-width:0}
+.fly__items b{font-weight:500}
+.fly__items p{font-size:13.5px;color:var(--muted);margin:3px 0 0;max-width:520px}
+.tag{font-style:normal;font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--sage);margin-left:6px}
+.fly__key{font-size:12px;color:var(--muted);margin-top:20px}
+.fly__sec button{font-size:21px}
+@media(max-width:899px){
+  .fly__in{display:flex;flex-direction:column;gap:0;padding-block:14px 0}
+  .fly__nav h3,.fly__key{display:none}
+  .fly__sec{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 0 12px;margin:0;border-bottom:1px solid var(--rule)}
+  .fly__sec::-webkit-scrollbar{display:none}
+  .fly__sec li{margin:0;flex:0 0 auto}
+  .fly__sec button{font-size:14px;opacity:1;border:1px solid var(--ink);padding:9px 14px 7px;white-space:nowrap}
+  .fly__sec button.on{background:var(--ink);color:var(--bg)}
+  .fly__sec small{display:none}
+  .fly__list{flex:1;padding-top:18px;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+  .fly__list h4{font-size:26px}
+}
+
 /* ===== hero carousel ===== */
 .hero{position:relative;height:88vh;height:88svh;min-height:520px;overflow:hidden;background:#eef0ea;color:#fff}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s var(--ease),visibility 0s 1.1s}
@@ -408,47 +438,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <div class="fly" id="fly" aria-hidden="true">
   <div class="fly__in wrap">
-    <div class="fly__col">
+    <div class="fly__col fly__nav">
       <h3>The menu</h3>
-      <ul class="fly__sec" id="flySec">
-        <li><button class="on" data-p="0">Breakfast<small>till 11</small></button></li>
-        <li><button data-p="1">Brunch<small>all day</small></button></li>
-        <li><button data-p="2">Little Tucker<small>under 12s</small></button></li>
-        <li><button data-p="3">Drinks<small>Loma from 6</small></button></li>
-      </ul>
+      <ul class="fly__sec" id="flySec"><li><button class="on" data-p="0">Breakfast<small>open till 11</small></button></li><li><button data-p="1">Brunch<small>all day</small></button></li><li><button data-p="2">Burgers &amp; sandwiches</button></li><li><button data-p="3">Little Tucker<small>under 12s</small></button></li><li><button data-p="4">Sides &amp; add-ons</button></li><li><button data-p="5">Coffee &amp; tea<small>Loma from 6</small></button></li><li><button data-p="6">Iced specialties</button></li><li><button data-p="7">Cold drinks &amp; smoothies</button></li><li><button data-p="8">Cold-pressed juice</button></li></ul>
+      <p class="fly__key">V vegetarian · VE vegan · GF gluten free</p>
     </div>
-    <div class="fly__col">
-      <h3>Regulars order</h3>
-      <ul class="fly__items fly__pane on">
-        <li><span>French toast</span><span>23.50</span></li>
-        <li><span>Big Tucker</span><span>36.50</span></li>
-        <li><span>Halloumi roll</span><span>18.00</span></li>
-        <li class="note"><span>Breakfast from open till 11.</span><span></span></li>
-      </ul>
-      <ul class="fly__items fly__pane">
-        <li><span>Rosti benedict</span><span>27.00</span></li>
-        <li><span>Chorizo scramble</span><span>25.50</span></li>
-        <li><span>Shroom scramble</span><span>25.50</span></li>
-        <li><span>Green eggs</span><span>21.00</span></li>
-        <li><span>Chunky avocado</span><span>19.00</span></li>
-        <li class="note"><span>Brunch runs all day, kitchen till 1.</span><span></span></li>
-      </ul>
-      <ul class="fly__items fly__pane">
-        <li><span>Egg on toast</span><span>8.00</span></li>
-        <li><span>Avocado on toast</span><span>10.00</span></li>
-        <li><span>Kids pancakes with maple</span><span>12.00</span></li>
-        <li><span>Fried chicken bites with chips</span><span>13.50</span></li>
-      </ul>
-      <ul class="fly__items fly__pane">
-        <li><span>Loma coffee, 6oz / 12oz</span><span>6.10 / 7.10</span></li>
-        <li><span>Cold brew, pistachio &amp; sea salt foam</span><span>12.00</span></li>
-        <li><span>Iced matcha, strawberry foam</span><span>12.00</span></li>
-        <li><span>Smoothies</span><span>12.50</span></li>
-        <li class="note"><span>Coffee from 6am weekdays, 7am weekends.</span><span></span></li>
-      </ul>
-    </div>
+    <div class="fly__col fly__list"><div class="fly__pane on"><h4>Breakfast <small>open till 11</small></h4><ul class="fly__items"><li><div><b>Granola</b><p>Oats and nut granola, chia coconut yoghurt, kiwi, pineapple, strawberry and lemon balm.</p></div><span>19.00</span></li><li><div><b>French Toast</b><p>Vanilla mascarpone, cinnamon, shortbread crumble, strawberry gel, fresh berries, custard and lemon balm on Bread Social brioche.</p></div><span>23.50</span></li><li><div><b>Baked Goods</b> <em class="tag">V</em><p>Sourdough fruit toast, croissant or banana bread with seasonal condiments.</p></div><span>11.50</span></li><li><div><b>Bacon Butty</b><p>Free-range bacon and HP sauce on a buttered milk bun.</p></div><span>16.00</span></li><li><div><b>Halloumi Roll</b> <em class="tag">V</em><p>Byron Bay halloumi, spinach, chunky avo, fried egg, house relish and aioli on a milk bun.</p></div><span>18.00</span></li><li><div><b>Brekkie Roll</b><p>Bacon, swiss cheese, fried egg and house relish on a milk bun.</p></div><span>18.00</span></li><li><div><b>Eggs on Toast</b> <em class="tag">V</em><p>Poached, fried or scrambled egg, sourdough and house relish. Scrambled is +2.</p></div><span>15.50</span></li><li><div><b>Big Tucker</b><p>Bacon, avocado, herb rosti, roast tomato, lamb sausage, mushrooms and house relish, plus eggs your way on sourdough.</p></div><span>36.50</span></li></ul></div><div class="fly__pane"><h4>Brunch <small>all day</small></h4><ul class="fly__items"><li><div><b>Chunky Avocado</b> <em class="tag">V</em><p>Chilli flakes, Persian feta and coriander on sourdough.</p></div><span>19.00</span></li><li><div><b>Shroom Scramble</b> <em class="tag">V</em><p>Scrambled egg, pan-fried mushies, sourdough, housemade Persian feta, chives and salsa verde.</p></div><span>25.50</span></li><li><div><b>Chorizo Scramble</b><p>Scrambled egg, pan-fried chorizo, red onion, nduja, coriander, chives, fermented chilli and chimichurri on sourdough.</p></div><span>25.50</span></li><li><div><b>Rosti Benedict</b> <em class="tag">V · GF</em><p>Two herbed potato rostis, free-range poached eggs and house-made hollandaise, plus your choice of topping: bacon, mushrooms, chunky avo, halloumi or chorizo. Half serve 15.5.</p></div><span>27.00</span></li><li><div><b>Green Eggs</b> <em class="tag">V</em><p>Seasonal greens, hummus, spiced almonds, poached eggs and salsa verde on sourdough.</p></div><span>21.00</span></li></ul></div><div class="fly__pane"><h4>Burgers &amp; sandwiches</h4><ul class="fly__items"><li><div><b>BLAT</b><p>Bacon, lettuce, avocado, tomato and aioli on a Bread Social sandwich loaf. Add chips 5.</p></div><span>19.00</span></li><li><div><b>The Burgster</b><p>Wagyu beef patty, swiss cheese, lettuce, onion, tomato and le mac sauce on a milk bun. Add chips 5, tabasco maple bacon 4, extra patty 7.5.</p></div><span>19.50</span></li><li><div><b>TFC Burger</b><p>Tucker fried chicken, pickled cabbage slaw, aged cheddar, lettuce and chipotle aioli on a milk bun. Add chips 5.</p></div><span>19.50</span></li></ul></div><div class="fly__pane"><h4>Little Tucker <small>under 12s</small></h4><ul class="fly__items"><li><div><b>Egg on Toast</b> <em class="tag">V</em><p>Fried, poached or scrambled egg and sourdough.</p></div><span>8.00</span></li><li><div><b>Avocado on Toast</b> <em class="tag">V · VE</em></div><span>10.00</span></li><li><div><b>Kids Pancakes</b> <em class="tag">V</em><p>With maple syrup.</p></div><span>12.00</span></li><li><div><b>Fried Chicken Bites</b><p>With chips.</p></div><span>13.50</span></li></ul></div><div class="fly__pane"><h4>Sides &amp; add-ons</h4><ul class="fly__items"><li><div><b>Lamb sausages</b></div><span>9.00</span></li><li><div><b>Greens &amp; hummus</b></div><span>10.00</span></li><li><div><b>Hollandaise</b></div><span>3.00</span></li><li><div><b>House relish</b></div><span>3.00</span></li><li><div><b>Chilli sambal</b></div><span>3.00</span></li><li><div><b>Citrus hummus</b></div><span>3.00</span></li><li><div><b>Avocado</b></div><span>6.00</span></li><li><div><b>Herbed potato rosti</b></div><span>7.00</span></li><li><div><b>Byron Bay halloumi</b></div><span>8.00</span></li><li><div><b>Free-range bacon</b></div><span>8.00</span></li><li><div><b>Free-range chorizo</b></div><span>8.00</span></li><li><div><b>Mushroom &amp; thyme</b></div><span>8.00</span></li><li><div><b>Gluten-free bread</b></div><span>+3.00</span></li><li><div><b>Hot chips</b></div><span>11.00</span></li><li class="note"><span>All our proteins are ethically sourced, free range and supplied by Meat Merchant Casuarina. We keep the menu as written, so no substitutions.</span></li></ul></div><div class="fly__pane"><h4>Coffee &amp; tea <small>Loma from 6</small></h4><ul class="fly__items"><li><div><b>Loma coffee</b><p>6oz / 12oz.</p></div><span>6.10 / 7.10</span></li><li><div><b>Filter brew</b></div><span>7.50</span></li><li><div><b>Cold brew</b></div><span>8.00</span></li><li><div><b>Alternative milks</b><p>Bonsoy, almond, oat, coconut, lactose free.</p></div><span>+1.00</span></li><li><div><b>Extras</b><p>Extra shot, decaf, mocha.</p></div><span>+0.75</span></li><li><div><b>Tea</b><p>English breakfast, earl grey, peppermint and cacao, lemongrass, green sencha and rose, chamomile.</p></div><span>6.50</span></li><li><div><b>Lemon, honey, ginger brew</b><p>Hot or cold.</p></div><span>8.00</span></li><li><div><b>Powder chai</b></div><span>7.50</span></li><li><div><b>Sticky chai</b></div><span>8.50</span></li><li><div><b>Turmeric latte</b></div><span>7.50</span></li><li><div><b>Organic hot chocolate</b></div><span>8.00</span></li><li><div><b>Organic &quot;ceremonial&quot; matcha</b></div><span>9.00</span></li></ul></div><div class="fly__pane"><h4>Iced specialties</h4><ul class="fly__items"><li><div><b>Cold brew, pistachio &amp; sea salt foam</b></div><span>12.00</span></li><li><div><b>Iced ceremonial matcha, strawberry foam</b></div><span>12.00</span></li><li><div><b>Organic iced chocolate, Nutella foam</b></div><span>12.00</span></li><li><div><b>Iced ceremonial matcha</b></div><span>8.50</span></li><li><div><b>Add cold foam to any iced drink</b></div><span>+5.00</span></li></ul></div><div class="fly__pane"><h4>Cold drinks &amp; smoothies</h4><ul class="fly__items"><li><div><b>Organic cola</b></div><span>6.50</span></li><li><div><b>Organic blood orange soda</b></div><span>6.50</span></li><li><div><b>Organic ginger beer</b></div><span>6.50</span></li><li><div><b>Housemade lemon &amp; mint iced tea</b></div><span>8.50</span></li><li><div><b>Housemade old fashioned lemonade</b></div><span>8.50</span></li><li><div><b>Kombucha</b></div><span>7.50</span></li><li><div><b>Acai smoothie</b><p>Acai, blueberry, banana and coconut water.</p></div><span>12.50</span></li><li><div><b>Green &amp; Gold smoothie</b><p>Mango, pineapple, dates, spinach, mint, ginger and coconut water.</p></div><span>12.50</span></li><li><div><b>Big Banana smoothie</b><p>Banana, cocoa, almond, Himalayan salt, dates and coconut milk.</p></div><span>12.50</span></li></ul></div><div class="fly__pane"><h4>Cold-pressed juice</h4><ul class="fly__items"><li><div><b>Orange juice</b></div><span>9.00</span></li><li><div><b>Roots</b><p>Beetroot, lemon, ginger and apple.</p></div><span>9.50</span></li><li><div><b>Antiox</b><p>Apple, passionfruit, rhubarb and raspberry.</p></div><span>9.50</span></li><li><div><b>Tropical</b><p>Orange, mango, passionfruit and lucuma.</p></div><span>9.50</span></li><li><div><b>Refresh</b><p>Mandarin and hibiscus with probiotics and peptides.</p></div><span>9.50</span></li><li><div><b>Energise</b><p>Pineapple, cucumber, spinach, lettuce, silver beet, lime and mint.</p></div><span>9.50</span></li></ul></div></div>
     <div class="fly__col fly__promo">
-      <div class="box"><img loading="lazy" decoding="async" class="ph" src="img/pickup-app.jpg" alt=""></div>
+      <div class="box"><img class="ph" src="img/pickup-app.jpg" alt="" loading="lazy" decoding="async"></div>
       <p>Order ahead online and it's ready when you walk in.</p>
       <p style="margin-top:14px"><a class="btn btn--dark" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></p>
     </div>
@@ -504,6 +501,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="sh wrap" id="dishes" data-rv>
     <h2>food</h2>
     <p>Breakfast from open till 11, brunch all day. The kitchen runs 7:30 till 1.</p>
+    <p style="margin-top:14px"><button class="ul on" data-menu style="background-color:transparent;border:0;padding:0 0 2px;font:inherit;font-size:15px;color:var(--ink);cursor:pointer">See the full menu →</button></p>
     <div class="chips chips--c" role="group" aria-label="Filter food" data-for="food">
       <button class="chip on" data-f="all">All</button><button class="chip" data-f="breakfast">Breakfast</button><button class="chip" data-f="brunch">Brunch</button><button class="chip" data-f="kids">Little Tucker</button>
     </div>
@@ -769,13 +767,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   /* menu panel */
   var fly=document.getElementById('fly'), scrim=document.getElementById('scrim'), btns=[document.getElementById('flyBtn'),document.getElementById('flyBtnM')];
-  function setFly(o){fly.classList.toggle('open',o);fly.setAttribute('aria-hidden',!o);scrim.classList.toggle('on',o);hd.classList.toggle('open',o);
+  function setFly(o){fly.classList.toggle('open',o);document.documentElement.style.overflow=o?'hidden':'';fly.setAttribute('aria-hidden',!o);scrim.classList.toggle('on',o);hd.classList.toggle('open',o);
     btns.forEach(function(b){b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu'});}
   btns.forEach(function(b){b.addEventListener('click',function(){setFly(!fly.classList.contains('open'))})});
   scrim.addEventListener('click',function(){setFly(false)});
+  document.querySelectorAll('[data-menu]').forEach(function(b){b.addEventListener('click',function(){setFly(true)})});
   var secs=[].slice.call(document.querySelectorAll('#flySec button')), panes=[].slice.call(document.querySelectorAll('.fly__pane'));
-  function pane(i){secs.forEach(function(s,k){s.classList.toggle('on',k===i)});panes.forEach(function(p,k){p.classList.toggle('on',k===i)})}
-  secs.forEach(function(s,i){s.addEventListener('mouseenter',function(){pane(i)});s.addEventListener('click',function(){pane(i)});s.addEventListener('focus',function(){pane(i)})});
+  var flist=document.querySelector('.fly__list');function pane(i){secs.forEach(function(s,k){s.classList.toggle('on',k===i)});panes.forEach(function(p,k){p.classList.toggle('on',k===i)});flist.scrollTop=0;var ul=document.getElementById('flySec');if(ul.scrollWidth>ul.clientWidth){ul.scrollTo({left:Math.max(0,secs[i].parentNode.offsetLeft-20),behavior:'smooth'})}}
+  secs.forEach(function(s,i){s.addEventListener('click',function(){pane(i)});s.addEventListener('focus',function(){pane(i)})});
 
   /* hero carousel: crossfade, slow zoom, progress bars */
   var slides=[].slice.call(hero.querySelectorAll('.slide')), bars=[].slice.call(document.querySelectorAll('#bars button')), cur=0, DUR=7000, timer=null, t0=0, left=DUR;
