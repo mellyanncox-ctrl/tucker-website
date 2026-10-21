@@ -514,7 +514,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .rv-on [data-rv]{opacity:1;transform:none}
   .slide img,.slide.on img{transform:none}
 }
-.band--sage{background:var(--sage)}.band--sage .read .m,.band--sage .read small{color:var(--ink)}.hd .logo .mark{background:#fff;transition:height .45s var(--ease),background-color .45s var(--ease)}.hd.solid .logo .mark,.hd.open .logo .mark{background:var(--sage)}</style>
+.band--sage{background:var(--sage)}.band--sage .read .m,.band--sage .read small{color:var(--ink)}.hd .logo .mark{background:#fff;transition:height .45s var(--ease),background-color .45s var(--ease)}.hd.solid .logo .mark,.hd.open .logo .mark{background:var(--sage)}@media(max-width:899px){.fcol--visit{order:-1}.fcol--visit>summary{pointer-events:none}.fcol--visit>summary::after{display:none}}</style>
 </head>
 <body>
 
@@ -636,7 +636,7 @@ return '<a class="ig__t" href="'+p.permalink+'" target="_blank" rel="noopener"><
   </div>
   <div class="ft__grid wrap">
     <details class="fcol" open><summary><h2>Eat</h2></summary><ul><li><a class="ul" href="bookings.html">Group bookings</a></li><li><a class="ul" href="gift-vouchers.html">Gift vouchers</a></li><li><a class="ul" href="store.html">Store</a></li><li><a class="ul" href="index.html#dishes">What to order</a></li><li><a class="ul" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></li><li><a class="ul" href="index.html#order">How ordering ahead works</a></li></ul></details>
-    <details class="fcol" open><summary><h2>Visit</h2></summary><ul><li>The Commons, T1/480 Casuarina Way, Casuarina NSW 2487</li><li><b style="font-weight:600">Weekdays</b><br>Coffee 6am–2pm<br>Kitchen 7:30am–1pm</li><li><b style="font-weight:600">Weekends</b><br>Coffee 7am–2pm<br>Kitchen 7:30am–1pm</li></ul></details>
+    <details class="fcol fcol--visit" open data-keep><summary><h2>Visit</h2></summary><ul><li>The Commons, T1/480 Casuarina Way, Casuarina NSW 2487</li><li><b style="font-weight:600">Weekdays</b><br>Coffee 6am–2pm<br>Kitchen 7:30am–1pm</li><li><b style="font-weight:600">Weekends</b><br>Coffee 7am–2pm<br>Kitchen 7:30am–1pm</li></ul></details>
     <details class="fcol" open><summary><h2>Around</h2></summary><ul><li><a class="ul" href="about.html">About Tucker</a></li><li><button class="ul" data-open="dogs" style="background-color:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer">What to do around the Tweed</button></li><li><a class="ul" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Instagram</a></li><li>gday@tuckercasuarina.com</li></ul></details>
     <div class="ft__news"><h2>Who we buy from</h2><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i></a>
@@ -727,7 +727,7 @@ return '<a class="ig__t" href="'+p.permalink+'" target="_blank" rel="noopener"><
   window.addEventListener('scroll',function(){requestAnimationFrame(mb)},{passive:true}); mb();
   document.querySelectorAll('.swap').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var t=b.closest('.tile'),on=!t.classList.contains('show-alt');t.classList.toggle('show-alt',on);b.setAttribute('aria-pressed',on);b.textContent=on?'Back to the dish ↔':'In the café ↔'})});
   var mq=window.matchMedia('(max-width:899px)');
-  function acc(){document.querySelectorAll('.fcol').forEach(function(d){if(mq.matches)d.removeAttribute('open');else d.setAttribute('open','')})}
+  function acc(){document.querySelectorAll('.fcol').forEach(function(d){if(mq.matches&&!d.hasAttribute('data-keep'))d.removeAttribute('open');else d.setAttribute('open','')})}
   acc(); mq.addEventListener&&mq.addEventListener('change',acc);
 
   /* group booking -> opens a pre-filled email */
