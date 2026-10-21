@@ -451,7 +451,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .reas div:nth-child(-n+2){border-bottom:1px solid rgba(31,42,34,.22)}
 @media(min-width:900px){.reas div:nth-child(-n+2){border-bottom:0}}
 .ft__grid{display:grid;gap:40px;padding-block:56px}
-@media(min-width:900px){.ft__grid{grid-template-columns:repeat(3,1fr) 1.5fr;gap:48px;padding-block:72px}}
+@media(min-width:900px){.ft__grid{grid-template-columns:repeat(3,1fr);gap:48px;padding-block:72px}}
 .ft h2{font-size:13px;font-weight:500;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid rgba(31,42,34,.25)}
 .ft li{margin:0 0 9px;font-size:14px}
 .ft a{text-decoration:none}
@@ -514,7 +514,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .rv-on [data-rv]{opacity:1;transform:none}
   .slide img,.slide.on img{transform:none}
 }
-.band--sage{background:var(--sage)}.band--sage .read .m,.band--sage .read small{color:var(--ink)}.hd .logo .mark{background:#fff;transition:height .45s var(--ease),background-color .45s var(--ease)}.hd.solid .logo .mark,.hd.open .logo .mark{background:var(--sage)}@media(max-width:899px){.fcol--visit{order:-1}.fcol--visit>summary{pointer-events:none}.fcol--visit>summary::after{display:none}}</style>
+.band--sage{background:var(--sage)}.band--sage .read .m,.band--sage .read small{color:var(--ink)}.hd .logo .mark{background:#fff;transition:height .45s var(--ease),background-color .45s var(--ease)}.hd.solid .logo .mark,.hd.open .logo .mark{background:var(--sage)}@media(max-width:899px){.fcol--visit{order:-1}.fcol--visit>summary{pointer-events:none}.fcol--visit>summary::after{display:none}}.partners{padding-block:36px 40px!important;border-bottom:0!important}.partners .plogos{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:22px 18px!important}.partners .plogo{width:100%;max-width:96px;height:40px}.partners .plogo--fuel{height:44px}.partners .plogo--nya{height:30px}.partners .plogo--loma{height:28px}.partners .plogo--mm{height:34px}.partners .plogo--bb{height:30px}@media(min-width:700px){.partners .plogos{grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:20px 24px!important}}@media(min-width:900px){.partners{grid-template-columns:200px 1fr!important;gap:32px!important;padding-block:44px!important}.partners .plogo{max-width:120px;height:48px}.partners .plogo--fuel{height:52px}.partners .plogo--nya{height:36px}.partners .plogo--loma{height:32px}.partners .plogo--mm{height:42px}.partners .plogo--bb{height:36px}}</style>
 </head>
 <body>
 
@@ -737,7 +737,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   <!-- partners -->
   <section class="partners wrap" aria-label="Trusted partners" data-rv>
-    <p class="eyebrow">The people who make us look good.</p>
+    <p class="eyebrow">The people we work with.</p>
     <div class="plogos">
         <a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i><img loading="lazy" decoding="async" class="pc" src="img/logo-loma.svg" alt=""></a>
         <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i><img loading="lazy" decoding="async" class="pc" src="img/logo-breadsocial-c.svg" alt=""></a>
@@ -829,10 +829,7 @@ return '<a class="ig__t" href="'+p.permalink+'" target="_blank" rel="noopener"><
     <details class="fcol" open><summary><h2>Eat</h2></summary><ul><li><a class="ul" href="bookings.html">Group bookings</a></li><li><a class="ul" href="gift-vouchers.html">Gift vouchers</a></li><li><a class="ul" href="store.html">Store</a></li><li><a class="ul" href="#dishes">What to order</a></li><li><a class="ul" href="https://meandu.app/tucker/pickup" target="_blank" rel="noopener">Order pickup</a></li><li><a class="ul" href="#order">How ordering ahead works</a></li></ul></details>
     <details class="fcol fcol--visit" open data-keep><summary><h2>Visit</h2></summary><ul><li>The Commons, T1/480 Casuarina Way, Casuarina NSW 2487</li><li><b style="font-weight:600">Weekdays</b><br>Coffee 6am–2pm<br>Kitchen 7:30am–1pm</li><li><b style="font-weight:600">Weekends</b><br>Coffee 7am–2pm<br>Kitchen 7:30am–1pm</li></ul></details>
     <details class="fcol" open><summary><h2>Around</h2></summary><ul><li><a class="ul" href="about.html">About Tucker</a></li><li><button class="ul" data-open="dogs" style="background-color:transparent;border:0;padding:0;color:inherit;font:inherit;cursor:pointer">What to do around the Tweed</button></li><li><a class="ul" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Instagram</a></li><li>gday@tuckercasuarina.com</li></ul></details>
-    <div class="ft__news"><h2>Who we buy from</h2><div class="plogos"><a class="plogo plogo--loma" href="https://www.instagram.com/lomacoffee.co/" target="_blank" rel="noopener" aria-label="Loma Coffee"><i style="--m:url(img/logo-loma.svg)"></i></a>
-        <a class="plogo" href="https://www.instagram.com/thebreadsocial/" target="_blank" rel="noopener" aria-label="Bread Social"><i style="--m:url(img/logo-breadsocial.svg)"></i></a>
-        <a class="plogo" href="https://www.instagram.com/produceozbyjensens/" target="_blank" rel="noopener" aria-label="Produce Oz by Jensens"><i style="--m:url(img/logo-jensens.png)"></i></a>
-        <a class="plogo plogo--mm" href="https://www.instagram.com/meatmerchantonline/" target="_blank" rel="noopener" aria-label="Meat Merchant"><i style="--m:url(img/logo-meatmerchant.png)"></i></a><span class="plogo plogo--fuel" aria-label="Fuel Bakehouse" role="img"><i style="--m:url(img/logo-fuel.png)"></i></span><span class="plogo plogo--bb" aria-label="Butterboy" role="img"><i style="--m:url(img/logo-butterboy-m.png)"></i></span><a class="plogo plogo--nya" href="https://nyarituals.com" target="_blank" rel="noopener" aria-label="Nya Rituals"><i style="--m:url(img/logo-nya.png)"></i></a></div></div>
+    
   </div>
   <div class="ft__base wrap"><span class="mark" aria-hidden="true"></span><span>© Tucker Casuarina · <a class="ul" href="https://www.tuckercasuarina.com/terms-of-use" target="_blank" rel="noopener">Terms</a> · <a class="ul" href="https://www.tuckercasuarina.com/privacy-policy" target="_blank" rel="noopener">Privacy</a> · Site by The Service Edit</span></div>
 </footer>
