@@ -355,7 +355,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .values li{display:grid;gap:4px;padding:14px 0;border-top:1px solid var(--rule)}
 .values li:last-child{border-bottom:1px solid var(--rule)}
 .values b{font-weight:500}.values span{color:var(--muted);font-size:15px}
-.about__community{font-size:15px!important;color:var(--muted)}
+.about__community{font-size:15px!important;color:var(--muted)}.about__txt>p{margin:0 0 16px}.about__txt>p b{display:inline-block;margin-top:10px}.about__txt .values{margin-top:0}
 /* ===== bookings ===== */
 .book{display:grid;gap:36px;padding-block:96px 20px}
 @media(min-width:900px){.book{grid-template-columns:.8fr 1.2fr;gap:72px;padding-block:130px 20px}}
@@ -557,20 +557,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <div class="scrim" id="scrim"></div>
 
 <main id="top" class="subpage">
-  <div class="ptitle wrap"><p class="crumb"><a href="index.html">Tucker</a> / About</p><h1>About</h1><p>Since 2018 at The Commons, Casuarina.</p></div>
+  <div class="ptitle wrap"><p class="crumb"><a href="index.html">Tucker</a> / About</p><h1>About</h1><p>Great coffee, hearty food and good people in Casuarina since 2018.</p></div>
   <!-- about -->
   <section class="about" id="about-story" aria-label="About Tucker">
     <div class="about__img" data-rv><img src="img/phil-dale.jpg" alt="Phil and Dale behind the counter at Tucker" loading="lazy" decoding="async"></div>
     <div class="about__txt" data-rv>
       <p class="eyebrow">Our story</p>
-      <h2>Three friends, a love of Aussie café culture, and a corner of The Commons.</h2>
-      <p>Tucker opened in Casuarina in 2018, started by three friends who wanted good coffee, hearty food and a room where everyone feels looked after. Today Phil and Dale are the heart of it, a short walk from the beach.</p>
+      <h2>Three mates and a love of Aussie café culture.</h2>
+      <p>Back in 2018, three mates with different skills in the industry but a shared love of Australian coffee culture decided to create something special. Tucker was born: a café in the heart of Casuarina, built on everything we love about Aussie hospitality.</p>
+      <p>At the heart of it today are Phil and Dale, who bring the warmth, energy and passion to everything we do. Eight years on, we're still serving up quality coffee, hearty food and plenty of good vibes, a stone's throw from the beach.</p>
+      <p><b>What drives us</b></p>
       <ul class="values">
-        <li><b>High value</b><span>The best we can do, on the plate and at the counter.</span></li>
-        <li><b>Local and sustainable</b><span>Local suppliers where we can, and as much made in-house as possible. Australian classics with a modern twist.</span></li>
-        <li><b>Casual comfort</b><span>A laid-back room for regulars, holidaymakers and the Sunday crew.</span></li>
+        <li><b>High value</b><span>From the food to the service, we give it our best every day.</span></li>
+        <li><b>Local and sustainable</b><span>Locally sourced ingredients wherever we can, and as much made in-house as possible. Australian classics with a modern twist.</span></li>
+        <li><b>Casual comfort</b><span>A laid-back space where everyone feels welcome. Kick back, relax and let us look after you.</span></li>
       </ul>
-      <p class="about__community">We back local junior sports teams, host fundraisers and give local teens their first jobs.</p>
+      <p><b>A community hub</b><br>Tucker is where people catch up, friendships are made and stories are shared. We donate to local junior sports teams, host fundraisers and give local teens their first jobs.</p>
+      <p>We've welcomed regulars and holidaymakers back time and time again, and we can't wait to keep making memories with you. Whether you're dropping in for a coffee, a meal or just a chat, see you soon at Tucker!</p>
     </div>
   </section>
 
@@ -621,7 +624,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <footer class="ft">
   <div class="ig wrap">
     <style>.ig{padding-block:56px 8px}.ig__hd{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}.ig__hd h2{margin:0;border:0;padding:0;font-size:32px;line-height:1.05}@media(min-width:900px){.ig__hd h2{font-size:44px}}.ig__hd .eyebrow{margin:0 0 10px}.ig__g{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}@media(min-width:900px){.ig__g{grid-template-columns:repeat(6,1fr);gap:10px}}.ig__t{display:block;aspect-ratio:4/5;overflow:hidden;background:#eef0ea}.ig__t img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--out),opacity .4s}.ig__t:hover img{transform:scale(1.04);opacity:.92}</style>
-    <div class="ig__hd"><div><p class="eyebrow">Instagram</p><h2>More of this on the grid.</h2></div><a class="btn btn--dark" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Follow @tucker.casuarina <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></div>
+    <div class="ig__hd"><div><p class="eyebrow">Instagram</p><h2>Come say g'day on Instagram.</h2></div><a class="btn btn--dark" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener">Follow @tucker.casuarina <svg viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 5h15M11 1l4 4-4 4"/></svg></a></div>
     <div class="ig__g"><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-1.jpg" alt="Green eggs and a black coffee"></a><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-2.jpg" alt="Pressing a rosti by hand"></a><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-3.jpg" alt="Smoothie held up outside the Tucker shopfront"></a><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-4.jpg" alt="TFC burger on a sage plate"></a><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-5.jpg" alt="Banana bread being sliced"></a><a class="ig__t" href="https://www.instagram.com/tucker.casuarina/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="img/ig-6.jpg" alt="Kids pancakes with maple"></a></div>
     <script>
 /* Live Instagram via Behold JSON feed. Paste the feed URL from behold.so between the quotes.
